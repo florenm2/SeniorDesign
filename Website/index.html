@@ -37,10 +37,26 @@
     
 <div class="wrapper">
     <div class="calendar">
-
+        <h1>Date</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary btn pull-right" id="leftButton"><</button>
+                </div>
+                <div class="col-sm-6">
+                    <h3 id="dt"></h3>
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-primary" id="rightButton">></button>
+                </div>
+            </div>
+            </div>
+        
+        
     </div> <!-- end calendar -->
 
     <div class="metrics" id="metrics">
+        </br></br>
         <h1 style:''>Metrics</h1>
         <h3>Temperature: {{ angular variable }}</h3>
         <div class="progress">
@@ -77,46 +93,8 @@
         </br></br>
         <h1>Trends</h1>
         <canvas id="myChart" width="400" height="200"></canvas>
-        <script>
-        var ctx = document.getElementById("myChart");
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March"],
-                datasets: [{
-                    label: 'Average Temperature over Past 3 Months',
-                    data: [22, 31, 42],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-        </script>
-        
+        </br></br>    
+        <canvas id="dayTrendChart" width="400" height="200"></canvas>
 
     </div> <!-- end trends -->
 
@@ -129,3 +107,88 @@
 </div> <!-- end background -->
 </body>
 </html>
+
+<script>
+    var d = new Date();
+    document.getElementById("dt").innerHTML = d.toUTCString();
+</script>
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["January", "February", "March"],
+        datasets: [{
+            label: 'Average Temperature over Past 3 Months',
+            data: [22, 31, 42],
+            backgroundColor: [
+                'rgba(0, 0, 255, 0.3)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<script>
+var ctx = document.getElementById("dayTrendChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["6:00", "7:00", "8:00","9:00", "10:00", "11:00","12:00", "13:00", "14:00", ],
+        datasets: [{
+            label: 'Average Temperature over Last 24 Hours',
+            data: [0,2,3,4,10,12,12,20,25,29],
+            backgroundColor: [
+                'rgba(0, 255, 0, 0.3)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
