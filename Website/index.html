@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- Charts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     <script src="charts.js"></script>
 
     <Title>AgriTrak</Title>
@@ -32,7 +32,7 @@
     </div>
 </nav>
 
-<body>
+<body onload="dayChart(); monthChart();">
 <div class="background">
     
 <div class="wrapper">
@@ -92,7 +92,7 @@
     <div class="trends" id="trends">
         </br></br>
         <h1>Trends</h1>
-        <canvas id="myChart" width="400" height="200"></canvas>
+        <canvas id="myChart" width="400" height="200" ></canvas>
         </br></br>    
         <canvas id="dayTrendChart" width="400" height="200"></canvas>
 
@@ -110,85 +110,5 @@
 
 <script>
     var d = new Date();
-    document.getElementById("dt").innerHTML = d.toUTCString();
-</script>
-
-<script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["January", "February", "March"],
-        datasets: [{
-            label: 'Average Temperature over Past 3 Months',
-            data: [22, 31, 42],
-            backgroundColor: [
-                'rgba(0, 0, 255, 0.3)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
-
-<script>
-var ctx = document.getElementById("dayTrendChart");
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["6:00", "7:00", "8:00","9:00", "10:00", "11:00","12:00", "13:00", "14:00", ],
-        datasets: [{
-            label: 'Average Temperature over Last 24 Hours',
-            data: [0,2,3,4,10,12,12,20,25,29],
-            backgroundColor: [
-                'rgba(0, 255, 0, 0.3)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
+    document.getElementById("dt").innerHTML = d.toDateString();
 </script>
