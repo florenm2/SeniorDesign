@@ -11,6 +11,9 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
     <!-- Charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     <script src="charts.js"></script>
@@ -19,7 +22,7 @@
     <link href="cover.css" rel="stylesheet">
 </head>
 
-<nav class="navbar navbar-inverse navbar-fixed-top" data-spy="affix">
+<nav class="navbar navbar-custom navbar-fixed-top" data-spy="affix">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">AgriTrak</a>
@@ -32,19 +35,18 @@
     </div>
 </nav>
 
-<body onload="dayChart(); monthChart();">
+<body onload="getMetrics(); dayChart(); monthChart();">
 <div class="background">
     
 <div class="wrapper">
-    <div class="calendar">
-        <h1>Date</h1>
+    <div class="calendar" id="calendar">
         <div class="container">
             <div class="row">
                 <div class="col-sm-3">
-                    <button type="button" class="btn btn-primary btn pull-right" id="leftButton"><</button>
+                    <button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button>
                 </div>
                 <div class="col-sm-6">
-                    <h3 id="dt"></h3>
+                    <h1 id="dt"></h1>
                 </div>
                 <div class="col-sm-3">
                     <button type="button" class="btn btn-primary" id="rightButton">></button>
@@ -52,40 +54,43 @@
             </div>
             </div>
         
-        
+    </br>    
     </div> <!-- end calendar -->
 
     <div class="metrics" id="metrics">
         </br></br>
-        <h1 style:''>Metrics</h1>
-        <h3>Temperature: {{ angular variable }}</h3>
+        <h1>Metrics</h1>
+        <h3 id="tempDisplay">Temperature: </h3>
         <div class="progress">
-            <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
-                Good Temp
+            <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp">
+            
             </div>
-            <div class="progress-bar progress-bar-warning" role="progressbar" style="width:10%">
-                Warning Temp
+            <div class="progress-bar progress-bar-success" role="progressbar" id="goodTemp">
+                
             </div>
-            <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
-                Danger Temp
+            <div class="progress-bar progress-bar-warning" role="progressbar" id="hotTemp">
+                
             </div>
         </div><!-- end progress -->
         </br>
         <h3>Evapotranspiration</h3>
         <h5>Corn</h5>
         <div class="progress">
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-            aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                50% Complete (info)
+            <div class="progress-bar progress-bar-info" role="progressbar" id="cornProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+                
             </div>
         </div>
         <h5>Wheat</h5>
         <div class="progress">
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-            aria-valuemin="0" aria-valuemax="100" style="width:20%">
-                20% Complete (info)
+            <div class="progress-bar progress-bar-info" role="progressbar" id="wheatProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" >
+                
             </div>
         </div>
+        </br>
+        <h3 id="soilMoistureLevel"></h3>
+
 
     </div><!-- end metrics -->
 
@@ -101,6 +106,7 @@
     <div class="contact" id="contact">
         </br></br>
         <h1>Contact Us</h1>
+        <p>Want to leave feedback? Contact us at benjamam@miamioh.edu</p>
     </div> <!-- end contact -->
 
 </div> <!-- end wrapper -->
@@ -110,5 +116,5 @@
 
 <script>
     var d = new Date();
-    document.getElementById("dt").innerHTML = d.toDateString();
+    document.getElementById("dt").innerHTML = d.toLocaleString();
 </script>

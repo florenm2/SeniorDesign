@@ -107,3 +107,57 @@ function populateHourTemps(){
     
     return hourTemps;
 }
+
+function getMetrics(){
+    getTemp();
+    getEvapotranspiration();
+    getSoilMoistureLevel();
+}
+
+function getTemp(){
+    var temp = Math.random() * 100;
+    temp = temp.toString().substr(0,5);
+    document.getElementById("tempDisplay").innerHTML = "Temperature: " + temp + "&#8457";
+    if(temp < 32){
+        document.getElementById("coldTemp").style.width = temp + "%";
+        document.getElementById("coldTemp").innerHTML = temp + "&#8457";
+    }
+    else if(temp > 70){
+        document.getElementById("hotTemp").style.width = temp + "%";
+        document.getElementById("hotTemp").innerHTML = temp + "&#8457";
+    }
+    else{
+        document.getElementById("goodTemp").style.width = temp + "%";
+        document.getElementById("goodTemp").innerHTML = temp + "&#8457";
+    }
+
+}
+
+function getEvapotranspiration(){
+    getCornE();
+    getWheatE();
+}
+
+function getCornE(){
+    var cornP = Math.random()*70;
+    cornP = cornP.toString().substr(0,5);
+    document.getElementById("cornProgress").style.width = cornP + "%";
+    document.getElementById("cornProgress").innerHTML = cornP;
+}
+
+function getWheatE(){
+    var wheatP = Math.random()*70;
+    wheatP = wheatP.toString().substr(0,5);
+    document.getElementById("wheatProgress").style.width = wheatP + "%";
+    document.getElementById("wheatProgress").innerHTML = wheatP;
+}
+
+function getSoilMoistureLevel(){
+    var sml = Math.random()*10;
+    sml = sml.toString().substr(0,5);
+    document.getElementById("soilMoistureLevel").innerHTML = "Soil Moisture Level: " + sml; 
+}
+
+function dateBack(){
+    document.getElementById("")
+}

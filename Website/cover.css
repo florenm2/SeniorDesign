@@ -3,32 +3,81 @@ body{
 }
 
 .background{
-    /* Set rules to fill background */
+    /*
+    /* Set rules to fill background 
     min-height: 100%;
     min-width: 1024px;
         
-    /* Set up proportionate scaling */
+    /* Set up proportionate scaling 
     width: 100%;
     height: auto;
         
    
     
-    /*background-color: #27ae60; */
+    /*background-color: #27ae60; 
     background-size: cover;
+    */
 } 
 
 .wrapper{
-    
     margin: auto;
-    width: 80%;
+    width: 90%;
 }
 
 .row {
-    width: 80%;
+    /*width: 90%; */    
 }
 
+.wrapper{
+    color: #333333;
+    font-family: 'Oswald', sans-serif;
+}
 
-.calendar h3{
+.navbar-custom{
+    background-color:rgba(44, 62, 80, .8);
+    color: white;
+    border-radius:0;
+}
+.navbar-custom .navbar-brand {
+    color:#eeeeee;
+    font-family: 'Oswald', sans-serif;
+}
+.navbar-custom .navbar-nav > li > a {
+    color:#eeeeee;
+    font-family: 'Oswald', sans-serif;
+}
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus { 
+    text-decoration: none; 
+    background-color: rgba(46, 204, 113,1.0); 
+}
+
+.calendar{
+    padding-bottom: 20px;
+}
+
+.calendar h1{
     text-align: center;
-    border: 2px solid springgreen;   
+}
+
+.col-sm-3{
+    padding: 3% 0% 0% 0%;
+}
+
+.metrics{
+    background-color: rgba(189, 195, 199, .7);
+    padding: 0px 10px 10px 10px; 
+    border-radius: 20px;
+    color: #333333;
+    font-family: 'Oswald', sans-serif;
+}
+.metrics h1{
+    text-align: center;
+}
+
+.trends h1{
+    text-align: center;
+}
+
+.contact{
+    text-align: center;
 }
