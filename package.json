@@ -1,0 +1,16 @@
+{
+  "name": "AgriTrak",
+  "description": "Senior Design",
+  "version": "0.1.10",
+  "author": {
+    "name": "Mary Floren",
+    "email": "maryrfloren@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/florenm2/SeniorDesign.git"
+  },
+  "dependencies": {
+    "mongodb": "^2.2.24"
+  }
+}
