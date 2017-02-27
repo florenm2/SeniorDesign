@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <Title>AgriTrak</Title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,6 +17,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
@@ -18,44 +25,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     <script src="charts.js"></script>
 
-    <Title>AgriTrak</Title>
+    
     <link href="cover.css" rel="stylesheet">
 </head>
 
 <body onload="getMetrics(); dayChart(); monthChart();">
-<nav class="navbar navbar-custom navbar-fixed-top" data-spy="affix">
+<nav class="navbar navbar-default navbar-fixed-top"> <!--navbar-custom-->
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#agriNav" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">AgriTrak</a>
+        </div>
+        <div class="collapse navbar-collapse" id="agriNav">
             <ul class="nav navbar-nav">
                 <li><a href="#metrics">Metrics</a></li>
                 <li><a href="#trends">Metric Trends</a></li>
-                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<!-- 
 <div class="calendar" id="calendar">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <!--<button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button> -->
+                <!--<button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button> ->
             </div>
-            <div class="col-sm-6">
-                <h1 id="dt"></h1>
+            <div class="col-sm-6 text-center">
+                <h2 id="date"></h2>
+                <h3 id="time"></h3>
             </div>
             <div class="col-sm-3">
-                <!--<button type="button" class="btn btn-primary" id="rightButton">></button> -->
+                <!--<button type="button" class="btn btn-primary" id="rightButton">></button> ->
             </div>
         </div>
-        </div>
-    
-</br>    
+    </div>
 </div> <!-- end calendar -->
 
 <div class="metrics" id="metrics">
-    </br></br>
+    <br/>
     <h1>Metrics</h1>
+    <h5 class="text-center" id="date"></h5>
     <h3 id="tempDisplay">Temperature: </h3>
     <div class="progress">
         <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp"></div>
@@ -98,5 +113,6 @@
 
 <script>
     var d = new Date();
-    document.getElementById("dt").innerHTML = d.toLocaleString();
+    document.getElementById("date").innerHTML = "Last taken at: " + d.toLocaleString();
+    //document.getElementById("time").innerHTML = d.getHours() + ":" + d.getMinutes();
 </script>

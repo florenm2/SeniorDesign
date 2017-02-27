@@ -101,7 +101,7 @@ function populateHourTemps(){
     //calls to database
 
     for(var i = 0; i < 24; i++){
-        var temp = Math.random() * 50;
+        var temp = 25+i;
         hourTemps.push(temp);
     }
     
