@@ -45,7 +45,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: populateTimes(),
         datasets: [{
-            label: 'Average Temperature over Last 24 Hours',
+            label: 'Temperature over Last 12 Hours',
             data: populateHourTemps(),
             backgroundColor: [
                 'rgba(0, 255, 0, 0.3)',
@@ -81,10 +81,10 @@ var myChart = new Chart(ctx, {
 
 function populateTimes(){
     var d = new Date();
-    var startingTime = d.getHours();
+    var startingTime = d.getHours()-1;
     var times = [];
     times.push(startingTime + ":00");
-    for(var i = 1; i < 24; i++){
+    for(var i = 1; i < 13; i++){
         var t = startingTime + i;
         if(t > 23){
             t = t - 23;

@@ -30,84 +30,88 @@
 </head>
 
 <body onload="getMetrics(); dayChart(); monthChart();">
-<nav class="navbar navbar-default navbar-fixed-top"> <!--navbar-custom-->
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#agriNav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">AgriTrak</a>
-        </div>
-        <div class="collapse navbar-collapse" id="agriNav">
-            <ul class="nav navbar-nav">
-                <li><a href="#metrics">Metrics</a></li>
-                <li><a href="#trends">Metric Trends</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- 
-<div class="calendar" id="calendar">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <!--<button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button> ->
+    <nav class="navbar navbar-default navbar-fixed-top"> <!--navbar-custom-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#agriNav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">AgriTrak</a>
             </div>
-            <div class="col-sm-6 text-center">
-                <h2 id="date"></h2>
-                <h3 id="time"></h3>
-            </div>
-            <div class="col-sm-3">
-                <!--<button type="button" class="btn btn-primary" id="rightButton">></button> ->
+            <div class="collapse navbar-collapse" id="agriNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="#metrics">Metrics</a></li>
+                    <li><a href="#trends">Trends</a></li>
+                    <li><a href="#peak">*tbd*</a></li>
+                </ul>
             </div>
         </div>
-    </div>
-</div> <!-- end calendar -->
-
-<div class="metrics" id="metrics">
-    <br/>
-    <h1>Metrics</h1>
-    <h5 class="text-center" id="date"></h5>
-    <h3 id="tempDisplay">Temperature: </h3>
-    <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp"></div>
-        <div class="progress-bar progress-bar-success" role="progressbar" id="goodTemp"></div>
-        <div class="progress-bar progress-bar-warning" role="progressbar" id="hotTemp"></div>
-    </div><!-- end progress -->
-    </br>
-    <h3>Evapotranspiration</h3>
-    <h5>Corn</h5>
-    <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" id="cornProgress" aria-valuenow="50"
-        aria-valuemin="0" aria-valuemax="100">
+    </nav>
+    <!-- 
+    <div class="calendar" id="calendar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--<button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button> ->
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2 id="date"></h2>
+                    <h3 id="time"></h3>
+                </div>
+                <div class="col-sm-3">
+                    <!--<button type="button" class="btn btn-primary" id="rightButton">></button> ->
+                </div>
+            </div>
         </div>
-    </div>
-    <h5>Wheat</h5>
-    <div class="progress">
-        <div class="progress-bar progress-bar-info" role="progressbar" id="wheatProgress" aria-valuenow="50"
-        aria-valuemin="0" aria-valuemax="100" >
+    </div> <!-- end calendar -->
+
+    <div class="metrics text-center" id="metrics">
+        <br/>
+        <h1>Metrics</h1>
+        <h5 class="text-center" id="date"></h5>
+        <h3 id="tempDisplay">Temperature: </h3>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp"></div>
+            <div class="progress-bar progress-bar-success" role="progressbar" id="goodTemp"></div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" id="hotTemp"></div>
+        </div><!-- end progress -->
+        </br>
+        <h3>Evapotranspiration</h3>
+        <h5>Corn</h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="cornProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+            </div>
         </div>
-    </div>
-    </br>
-    <h3 id="soilMoistureLevel"></h3>
-</div><!-- end metrics -->
+        <h5>Wheat</h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="wheatProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" >
+            </div>
+        </div>
+        </br>
+        <h3 id="soilMoistureLevel"></h3>
+    </div><!-- end metrics -->
 
-<div class="trends" id="trends">
-    </br></br>
-    <h1>Trends</h1>
-    <canvas id="myChart" ></canvas> <!-- width="400" height="200" -->
-    </br></br>    
-    <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
-</div> <!-- end trends -->
+    <div class="trends" id="trends">
+        </br></br>
+        <h1>Trends</h1>
+        <canvas id="myChart" ></canvas> <!-- width="400" height="200" -->
+        </br></br>    
+        <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
+    </div> <!-- end trends -->
 
-<div class="contact" id="contact">
-    </br></br>
-    <h1>Contact Us</h1>
-    <p>Want to leave feedback? Contact us at benjamam@miamioh.edu</p>
-</div> <!-- end contact -->
+    <div class="peak text-center" id="peak">
+        <h1>Database Data</h1>
+        <h5>Data!!!</h5>
+        <br/>
+        <p id="data"></p>
+        
+    </div>    
+    <script src="data.js"></script>
 </body>
 </html>
 
