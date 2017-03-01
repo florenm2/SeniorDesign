@@ -101,7 +101,7 @@ function populateHourTemps(){
     var times = populateTimes();
     //calls to database
     
-    hourTemps = getCollectionData();
+    hourTemps = tempData();
     /*
     for(var i = 0; i < 24; i++){
         var temp = 25+i;
@@ -118,8 +118,7 @@ function getMetrics(){
 }
 
 function getTemp(){
-    var temp = Math.random() * 100;
-    temp = temp.toString().substr(0,5);
+    var temp = currentTemp();
     document.getElementById("tempDisplay").innerHTML = "Temperature: " + temp + "&#8457";
     if(temp < 32){
         document.getElementById("coldTemp").style.width = temp + "%";
@@ -142,22 +141,19 @@ function getEvapotranspiration(){
 }
 
 function getCornE(){
-    var cornP = Math.random()*70;
-    cornP = cornP.toString().substr(0,5);
+    var cornP = currentCornEvap();
     document.getElementById("cornProgress").style.width = cornP + "%";
     document.getElementById("cornProgress").innerHTML = cornP;
 }
 
 function getWheatE(){
-    var wheatP = Math.random()*70;
-    wheatP = wheatP.toString().substr(0,5);
+    var wheatP = currentWheatEvap();
     document.getElementById("wheatProgress").style.width = wheatP + "%";
     document.getElementById("wheatProgress").innerHTML = wheatP;
 }
 
 function getSoilMoistureLevel(){
-    var sml = Math.random()*10;
-    sml = sml.toString().substr(0,5);
+    var sml = currentSoilMoisture();
     document.getElementById("soilMoistureLevel").innerHTML = "Soil Moisture Level: " + sml; 
 }
 
@@ -178,19 +174,24 @@ function getCollectionData(){
     var response = JSON.parse(xhttp.responseText);
     console.log(response);
     //formatData(response);
-    var temperatureData = tempData(response);
-    return temperatureData;
+    //var temperatureData = tempData(response);
+    return response;
 }
 
+var databaseData = getCollectionData();
+
 function formatData(data){
-    console.log(data[0].measurements.length);
+    //console.log(data[0].measurements.length);
     for(var i=0; i<data[0].measurements.length; i++){
         tempData = data[0].measurements[i];
-        document.getElementById("data").innerHTML += "dateTime: " +  tempData.dateTime + "<br>Temp: " + tempData.temperature + "<br>";
+        document.getElementById("data").innerHTML += "<br>dateTime: " +  tempData.dateTime + "<br>Temp: " + tempData.temperature + "<br>" +
+            "Corn Evapotranspiration: " + tempData.cornEvap + "<br>Wheat Evapo: " + tempData.wheatEvap + "<br>Soil Moisture Level: " + tempData.soilMoisture + "<br>";
     }
 }
 
-function tempData(data){
+function tempData(){
+    var data = databaseData;
+    //console.log(data);
     var tData = [];
     for(var i=0; i<data[0].measurements.length; i++){
         tData.push(data[0].measurements[i].temperature);
@@ -198,3 +199,33 @@ function tempData(data){
     formatData(data);
     return tData;
 }
+
+function currentTemp(){
+    var data = databaseData;
+    var latestT = data[0].measurements[0].temperature;
+    return latestT;
+}
+
+function currentWheatEvap(){
+    var data = databaseData;
+    var cWheat = data[0].measurements[0].wheatEvap;
+    return cWheat;
+}
+
+function currentCornEvap(){
+    var data = databaseData;
+    var cCorn = data[0].measurements[0].cornEvap;
+    return cCorn;
+}
+
+function currentSoilMoisture(){
+    var data = databaseData;
+    var cSoil = data[0].measurements[0].soilMoisture;
+    return cSoil;
+}
+
+
+//to run
+getMetrics();
+dayChart();
+monthChart();
