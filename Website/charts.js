@@ -96,15 +96,18 @@ function populateTimes(){
 
 function populateHourTemps(){
     
+    
     var hourTemps = [];
     var times = populateTimes();
     //calls to database
-
+    
+    hourTemps = getCollectionData();
+    /*
     for(var i = 0; i < 24; i++){
         var temp = 25+i;
         hourTemps.push(temp);
     }
-    
+    */
     return hourTemps;
 }
 
@@ -160,4 +163,38 @@ function getSoilMoistureLevel(){
 
 function dateBack(){
     document.getElementById("")
+}
+
+//Database 
+var baseuri = "https://api.mlab.com/api/1";
+var apiKey = "yYhdTVjbQWk0303jla3N_39DJp8RAJ4P";
+
+function getCollectionData(){
+    var url = baseuri + "/databases/seniordesign/collections/metrics?apiKey=" + apiKey;
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", url, false);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    xhttp.send();
+    var response = JSON.parse(xhttp.responseText);
+    console.log(response);
+    //formatData(response);
+    var temperatureData = tempData(response);
+    return temperatureData;
+}
+
+function formatData(data){
+    console.log(data[0].measurements.length);
+    for(var i=0; i<data[0].measurements.length; i++){
+        tempData = data[0].measurements[i];
+        document.getElementById("data").innerHTML += "dateTime: " +  tempData.dateTime + "<br>Temp: " + tempData.temperature + "<br>";
+    }
+}
+
+function tempData(data){
+    var tData = [];
+    for(var i=0; i<data[0].measurements.length; i++){
+        tData.push(data[0].measurements[i].temperature);
+    }
+    formatData(data);
+    return tData;
 }

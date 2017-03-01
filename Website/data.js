@@ -20,12 +20,16 @@ function getCollectionData(){
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     var response = JSON.parse(xhttp.responseText);
-    var dateTime = response[0].dateTime;
-    var temp = response[0].temperature;
     console.log(response);
-    console.log(temp);
-    document.getElementById("data").innerHTML = "dateTime: " +  dateTime + "<br>Temp: " + temp;
+    formatData(response);
+}
 
+function formatData(data){
+    console.log(data[0].measurements.length);
+    for(var i=0; i<data[0].measurements.length; i++){
+        tempData = data[0].measurements[i];
+        document.getElementById("data").innerHTML += "dateTime: " +  tempData.dateTime + "<br>Temp: " + tempData.temperature + "<br>";
+    }
 }
 
 getCollectionData();
