@@ -5,7 +5,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ["January", "February", "March"],
         datasets: [{
-            label: 'Average Temperature over Past 3 Months',
+            label: 'Temperature',
             data: [22, 31, 42],
             backgroundColor: 'rgba(0, 0, 255, 0.3)' , /*[
                 'rgba(0, 0, 255, 0.3)' ,
@@ -45,7 +45,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: populateTimes(),
         datasets: [{
-            label: 'Temperature over Last 12 Hours',
+            label: 'Temperature',
             data: populateHourTemps(),
             backgroundColor: 'rgba(0, 255, 0, 0.3)',/*[
                 'rgba(0, 255, 0, 0.3)',
