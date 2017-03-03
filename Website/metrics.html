@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <Title>AgriTrak</Title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <!-- Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+    <script src="charts.js"></script>
+
+    
+    <link href="cover.css" rel="stylesheet">
+</head>
+
+<body> <!--onload="getMetrics(); dayChart(); monthChart();" -->
+    <nav class="navbar navbar-default navbar-fixed-top"> <!--navbar-custom-->
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#agriNav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">AgriTrak</a>
+            </div>
+            <div class="collapse navbar-collapse" id="agriNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="metrics.html">Metrics</a></li>
+                    <li><a href="#trends">Trends</a></li>
+                    <li><a href="#peak">*tbd*</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 
+    <div class="calendar" id="calendar">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--<button type="button" class="btn btn-primary btn pull-right" id="leftButton" onclick="dateBack()"><</button> ->
+                </div>
+                <div class="col-sm-6 text-center">
+                    <h2 id="date"></h2>
+                    <h3 id="time"></h3>
+                </div>
+                <div class="col-sm-3">
+                    <!--<button type="button" class="btn btn-primary" id="rightButton">></button> ->
+                </div>
+            </div>
+        </div>
+    </div> <!-- end calendar -->
+
+    <div class="metrics text-center" id="metrics">
+        <br/>
+        <h1>Metrics</h1>
+        <h5 class="text-center" id="date"></h5>
+        <h3 id="tempDisplay">Temperature: </h3>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp"></div>
+            <div class="progress-bar progress-bar-success" role="progressbar" id="goodTemp"></div>
+            <div class="progress-bar progress-bar-warning" role="progressbar" id="hotTemp"></div>
+        </div><!-- end progress -->
+        </br>
+        <h3>Evapotranspiration</h3>
+        <h5>Corn</h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="cornProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        <h5>Wheat</h5>
+        <div class="progress">
+            <div class="progress-bar progress-bar-info" role="progressbar" id="wheatProgress" aria-valuenow="50"
+            aria-valuemin="0" aria-valuemax="100" >
+            </div>
+        </div>
+        </br>
+        <h3 id="soilMoistureLevel"></h3>
+    </div><!-- end metrics -->
+
+    <div class="trends text-center" id="trends">
+        </br></br>
+        <h1>Trends</h1>
+        <br/>
+        <h4>Temperature over Last Three Months</h4>
+        <canvas id="myChart" ></canvas> <!-- width="400" height="200" -->
+        </br></br>
+        <h4>Temperature over Last 12 Hours</h4>    
+        <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
+    </div> <!-- end trends -->
+
+    <div class="peak text-center" id="peak">
+        <h1>Database Data</h1>
+        <h5>Data!!!</h5>
+        <br/>
+        <p id="data"></p>
+        
+    </div>    
+    <script src="charts.js"></script>
+</body>
+</html>
+
+<script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = "Last taken at: " + d.toLocaleString();
+    //document.getElementById("time").innerHTML = d.getHours() + ":" + d.getMinutes();
+</script>

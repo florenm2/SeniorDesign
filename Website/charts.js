@@ -83,14 +83,15 @@ function populateTimes(){
     var d = new Date();
     var startingTime = d.getHours()-1;
     var times = [];
-    times.push(startingTime + ":00");
+    /*times.push(startingTime + ":00");
     for(var i = 1; i < 13; i++){
         var t = startingTime + i;
         if(t > 23){
             t = t - 23;
         }
         times.push(t + ":00");
-    }
+    }*/
+    times = timeData();
     return times;
 }
 
@@ -178,7 +179,7 @@ function getCollectionData(){
     return response;
 }
 
-var databaseData = getCollectionData();
+var data = getCollectionData();
 
 function formatData(data){
     //console.log(data[0].measurements.length);
@@ -190,8 +191,6 @@ function formatData(data){
 }
 
 function tempData(){
-    var data = databaseData;
-    //console.log(data);
     var tData = [];
     for(var i=0; i<data[0].measurements.length; i++){
         tData.push(data[0].measurements[i].temperature);
@@ -200,26 +199,34 @@ function tempData(){
     return tData;
 }
 
+function timeData(){
+    var tData = [];
+    for(var i=0; i<data[0].measurements.length; i++){
+        tData.push(data[0].measurements[i].dateTime);
+    }
+    return tData;
+}
+
 function currentTemp(){
-    var data = databaseData;
+    //var data = databaseData;
     var latestT = data[0].measurements[0].temperature;
     return latestT;
 }
 
 function currentWheatEvap(){
-    var data = databaseData;
+    //var data = databaseData;
     var cWheat = data[0].measurements[0].wheatEvap;
     return cWheat;
 }
 
 function currentCornEvap(){
-    var data = databaseData;
+    //var data = databaseData;
     var cCorn = data[0].measurements[0].cornEvap;
     return cCorn;
 }
 
 function currentSoilMoisture(){
-    var data = databaseData;
+    //var data = databaseData;
     var cSoil = data[0].measurements[0].soilMoisture;
     return cSoil;
 }
