@@ -46,19 +46,6 @@
                 <li>
                     <a href="trends.html">Trends</a>
                 </li>
-                <!--
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Works <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li class="dropdown-header">Dropdown heading</li>
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-                -->
             </ul>
             
         </nav>
@@ -75,8 +62,27 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="content text-center">
-                            <h1>Welcome to AgriTrak</h1>
-                            <img src="http://www.farmmanagement.pro/wp-content/uploads/2014/05/wireless.jpg" alt="logo">                       
+                            <div>
+                                <h3>The Institute for Food at Miami University</h3>
+                            </div>
+                            <div id="map"></div>
+                                <script>
+                                function initMap() {
+                                    var uluru = {lat: 39.5264934, lng: -84.7303092};
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 17,
+                                    center: uluru,
+                                    mapTypeId: 'satellite'
+                                    });
+                                    var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                    });
+                                }
+                                </script>
+                                <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt-KUVLtTlOqLn4dvpqfRIKUdke3bhbAg&callback=initMap">
+                                </script>                     
                         </div>
                     </div>
                 </div>
