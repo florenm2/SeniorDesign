@@ -64,7 +64,13 @@ h3{
     height: 90%;
 }
 
+
+/* FARM CSS */
 #map {
         height: 350px;
         width: 100%;
+}
+
+.content p{
+    text-align: left;
 }

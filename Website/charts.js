@@ -179,8 +179,6 @@ function getCollectionData(){
     return response;
 }
 
-var data = getCollectionData();
-
 function formatData(data){
     //console.log(data[0].measurements.length);
     for(var i=0; i<data[0].measurements.length; i++){
@@ -209,6 +207,7 @@ function timeData(){
 
 function currentTemp(){
     //var data = databaseData;
+    console.log("test");
     var latestT = data[0].measurements[0].temperature;
     return latestT;
 }
@@ -233,6 +232,10 @@ function currentSoilMoisture(){
 
 
 //to run
+
+var data = getCollectionData();
+/*
 getMetrics();
 dayChart();
 monthChart();
+*/
