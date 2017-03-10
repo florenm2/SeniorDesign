@@ -74,3 +74,9 @@ h3{
 .farm-content p{
     text-align: left;
 }
+
+/* About Us CSS */
+.about-us img{
+    height: 50%;
+    width: 50%;
+}
