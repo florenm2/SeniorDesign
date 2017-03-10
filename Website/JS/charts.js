@@ -179,12 +179,22 @@ function getCollectionData(){
     return response;
 }
 
-function formatData(data){
+function formatData(){
     //console.log(data[0].measurements.length);
     for(var i=0; i<data[0].measurements.length; i++){
         tempData = data[0].measurements[i];
-        document.getElementById("data").innerHTML += "<br>dateTime: " +  tempData.dateTime + "<br>Temp: " + tempData.temperature + "<br>" +
-            "Corn Evapotranspiration: " + tempData.cornEvap + "<br>Wheat Evapo: " + tempData.wheatEvap + "<br>Soil Moisture Level: " + tempData.soilMoisture + "<br>";
+        var table = document.getElementById("data");
+        var row = table.insertRow(i+1);
+        var cell1 = row.insertCell(0);
+        cell1.innerHTML = tempData.dateTime;
+        var cell2 = row.insertCell(1);
+        cell2.innerHTML = tempData.temperature;
+        var cell3 = row.insertCell(2);
+        cell3.innerHTML = tempData.soilMoisture;
+        var cell4 = row.insertCell(3);
+        cell4.innerHTML = tempData.cornEvap;
+        var cell5 = row.insertCell(4);
+        cell5.innerHTML = tempData.wheatEvap;
     }
 }
 
@@ -193,7 +203,7 @@ function tempData(){
     for(var i=0; i<data[0].measurements.length; i++){
         tData.push(data[0].measurements[i].temperature);
     }
-    formatData(data);
+    //formatData(data);
     return tData;
 }
 

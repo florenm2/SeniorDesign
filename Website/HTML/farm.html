@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <Title>AgriTrak</Title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    
+    <link href="../CSS/index.css" rel="stylesheet">
+    <link href="../CSS/cover.css" rel="stylesheet">
+</head>
+<body>
+        <div id="wrapper">
+        <div class="overlay"></div>
+    
+        <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li class="sidebar-brand"><a href="index.html">AgriTrak</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="farm.html">The Farm</a></li>
+                <li><a href="sensors.html">The Sensors</a></li>
+                <li><a href="metrics.html">Metrics</a></li>
+                <li><a href="trends.html">Trends</a></li>
+                <li><a href="data.html">Raw Data</a></li>
+            </ul>
+            
+        </nav>
+        <!-- /#sidebar-wrapper -->
+    
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+    			<span class="hamb-middle"></span>
+				<span class="hamb-bottom"></span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="content text-center farm-content">
+                            <div>
+                                <h3>The Institute for Food at Miami University</h3>
+                            </div>
+                            <div id="map"></div>
+                            <br/>
+                            <div>
+                                <p>The Institute for Food is a Provost Interdisciplinary Innovation Project to engage the Miami University community around issues of food, health and sustainable agriculture. Its mission is to foster healthy eating, healthy food, healthy communities, and a healthy planet.</p>
+                                <p>Read more about the Institude for Food and the good things accomplished there here: 
+                                    <a href="http://miamioh.edu/news/campus-news/2016/11/farm-to-table.html">[1]</a>
+                                    <a href="http://miamioh.edu/news/campus-news/2016/07/miamifarm-1stharvest.html"> [2]</a>
+                            </div>
+                                <script>
+                                function initMap() {
+                                    var uluru = {lat: 39.5264934, lng: -84.7303092};
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                    zoom: 17,
+                                    center: uluru,
+                                    mapTypeId: 'satellite'
+                                    });
+                                    var marker = new google.maps.Marker({
+                                    position: uluru,
+                                    map: map
+                                    });
+                                }
+                                </script>
+                                <script async defer
+                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt-KUVLtTlOqLn4dvpqfRIKUdke3bhbAg&callback=initMap">
+                                </script>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <script src="../JS/sidemenu.js"></script>
+</body>
+</html>

@@ -20,12 +20,16 @@
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+    <!-- Charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
     
-    <link href="index.css" rel="stylesheet">
-    <link href="cover.css" rel="stylesheet">
+    <link href="../CSS/index.css" rel="stylesheet">
+    <link href="../CSS/cover.css" rel="stylesheet">
 </head>
-<body>
-        <div id="wrapper">
+
+<body> 
+    <div id="wrapper">
         <div class="overlay"></div>
     
         <!-- Sidebar -->
@@ -37,11 +41,11 @@
                 <li><a href="sensors.html">The Sensors</a></li>
                 <li><a href="metrics.html">Metrics</a></li>
                 <li><a href="trends.html">Trends</a></li>
+                <li><a href="data.html">Raw Data</a></li>
             </ul>
-            
         </nav>
         <!-- /#sidebar-wrapper -->
-    
+
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
@@ -52,36 +56,37 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="content text-center farm-content">
-                            <div>
-                                <h3>The Institute for Food at Miami University</h3>
-                            </div>
-                            <div id="map"></div>
+                         <div class="metrics text-center" id="metrics">
                             <br/>
-                            <div>
-                                <p>The Institute for Food is a Provost Interdisciplinary Innovation Project to engage the Miami University community around issues of food, health and sustainable agriculture. Its mission is to foster healthy eating, healthy food, healthy communities, and a healthy planet.</p>
-                                <p>Read more about the Institude for Food and the good things accomplished there here: 
-                                    <a href="http://miamioh.edu/news/campus-news/2016/11/farm-to-table.html">[1]</a>
-                                    <a href="http://miamioh.edu/news/campus-news/2016/07/miamifarm-1stharvest.html"> [2]</a>
+                            <h1>Metrics</h1>
+                            <h5 class="text-center" id="date"></h5>
+                            <h3 id="tempDisplay">Temperature: </h3>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" id="coldTemp"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" id="goodTemp"></div>
+                                <div class="progress-bar progress-bar-warning" role="progressbar" id="hotTemp"></div>
+                            </div><!-- end progress -->
+                            </br>
+                            <h3>Evapotranspiration</h3>
+                            <h5>Corn</h5>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" id="cornProgress" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100">
+                                </div>
                             </div>
-                                <script>
-                                function initMap() {
-                                    var uluru = {lat: 39.5264934, lng: -84.7303092};
-                                    var map = new google.maps.Map(document.getElementById('map'), {
-                                    zoom: 17,
-                                    center: uluru,
-                                    mapTypeId: 'satellite'
-                                    });
-                                    var marker = new google.maps.Marker({
-                                    position: uluru,
-                                    map: map
-                                    });
-                                }
-                                </script>
-                                <script async defer
-                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCt-KUVLtTlOqLn4dvpqfRIKUdke3bhbAg&callback=initMap">
-                                </script>                     
-                        </div>
+                            <h5>Wheat</h5>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-info" role="progressbar" id="wheatProgress" aria-valuenow="50"
+                                aria-valuemin="0" aria-valuemax="100" >
+                                </div>
+                            </div>
+                            </br>
+                            <h3 id="soilMoistureLevel"></h3>
+                        </div><!-- end metrics -->   
+                        <script src="../JS/charts.js" type="text/javascript"></script>
+                        <script language="javascript">
+                            getMetrics();
+                        </script>                       
                     </div>
                 </div>
             </div>
@@ -90,6 +95,14 @@
 
     </div>
     <!-- /#wrapper -->
-    <script src="sidemenu.js"></script>
+    <script src="../JS/sidemenu.js"></script>
+
+    
 </body>
 </html>
+
+<script>
+    var d = new Date();
+    document.getElementById("date").innerHTML = "Last taken at: " + d.toLocaleString();
+    //document.getElementById("time").innerHTML = d.getHours() + ":" + d.getMinutes();
+</script>

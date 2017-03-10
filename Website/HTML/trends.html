@@ -23,11 +23,10 @@
 
     <!-- Charts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
-    <script src="charts.js"></script>
 
     
-    <link href="cover.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+    <link href="../CSS/index.css" rel="stylesheet">
+    <link href="../CSS/cover.css" rel="stylesheet">
 </head>
 
 <body> 
@@ -43,6 +42,7 @@
                 <li><a href="sensors.html">The Sensors</a></li>
                 <li><a href="metrics.html">Metrics</a></li>
                 <li><a href="trends.html">Trends</a></li>
+                <li><a href="data.html">Raw Data</a></li>
             </ul>
         </nav>
         <!-- /#sidebar-wrapper -->
@@ -65,16 +65,8 @@
                             </br></br>
                             <h4>Temperature over Last 12 Hours</h4>    
                             <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
-                            
                         </div> <!-- end trends -->
-
-                        <div class="peak text-center" id="peak">
-                            <h1>Database Data</h1>
-                            <h5>Data!!!</h5>
-                            <br/>
-                            <p id="data"></p>
-                        </div>         
-                        <script src="charts.js" type="text/javascript"></script>
+                        <script src="../JS/charts.js" type="text/javascript"></script>
                         <script language="javascript">
                             dayChart();
                             monthChart();
@@ -87,6 +79,6 @@
 
     </div>
     <!-- /#wrapper -->
-    <script src="sidemenu.js"></script>
+    <script src="../JS/sidemenu.js"></script>
 </body>
 </html>
