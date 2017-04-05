@@ -16,10 +16,10 @@
                  <div class="trends text-center" id="trends">
                     <h1>Trends</h1>
                     <br/>
-                    <h4>Temperature over Last Three Months</h4>
+                    <h4>Temperature over Last Three Days</h4>
                     <canvas id="myChart" ></canvas> <!-- width="400" height="200" -->
                     </br></br>
-                    <h4>Temperature over Last 12 Hours</h4>
+                    <h4>Temperature over Last 24 Hours</h4>
                     <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
                 </div> <!-- end trends -->
                 <script src="../JS/charts.js" type="text/javascript"></script>

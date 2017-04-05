@@ -3,7 +3,7 @@ var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["January", "February", "March"],
+        labels: ["Monday", "Tuesday", "Wednesday"],
         datasets: [{
             label: 'Temperature',
             data: [22, 31, 42],
@@ -242,10 +242,5 @@ function currentSoilMoisture(){
 
 
 //to run
-
 var data = getCollectionData();
-/*
-getMetrics();
-dayChart();
-monthChart();
-*/
+

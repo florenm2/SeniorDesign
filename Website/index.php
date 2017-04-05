@@ -35,7 +35,7 @@
             <li class="sidebar-brand"><a href="index.html">AgriTrak</a></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="HTML/farm.php">The Farm</a></li>
-            <li><a href="HTML/sensors.php">The Sensors</a></li>
+            <li><a href="HTML/hardware.php">The Hardware</a></li>
             <li><a href="HTML/metrics.php">Metrics</a></li>
             <li><a href="HTML/trends.php">Trends</a></li>
             <li><a href="HTML/data.php">Raw Data</a></li>
