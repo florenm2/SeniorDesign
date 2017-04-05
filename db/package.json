@@ -1,0 +1,14 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "db.js",
+  "scripts": {
+    "test": "index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^2.2.24"
+  }
+}
