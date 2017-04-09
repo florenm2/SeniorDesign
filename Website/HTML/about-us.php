@@ -14,23 +14,22 @@
                     <br/>
                     <img src="../images/adam.jpg" alt="adam">
                     <h4>Adam Benjamin - Team Member</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Major: Computer Engineering<br/> Minor: Computer Science</p>
                     <br/>
-                    <img src="http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png" alt="matt">
+                    <img src="../images/matt.jpg" alt="matt">
                     <h4>Matt Boubin - Team Member</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Major: Electrical Engineering</p>
                     <br/>
-                    <img src="http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png" alt="mary">
+                    <img src="../images/mary.JPG" alt="mary">
                     <h4>Mary Floren - Team Member</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Major: Computer Engineering, Electrical Engineering<br/> Minor: Rocking snapbacks</p>
                     <br/>
                     <img src="http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png" alt="ashley">
                     <h4>Ashley Youngwirth - Team Member</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p>Major: Electrical Engineering</p>
                     <br/>
-                    <img src="http://www.thebakerymadewithlove.com/wp-content/uploads/2014/08/placeholder.png" alt="drR">
+                    <img src="../images/drR.jpg" alt="drR">
                     <h4>Dr. Yamuna Rajasekhar - Academic Advisor</h4>
-                    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     <br/>
                 </div>
             </div>
