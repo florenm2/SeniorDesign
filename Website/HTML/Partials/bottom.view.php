@@ -12,5 +12,6 @@
 </div>
 <!-- /#wrapper -->
 <script src="../JS/sidemenu.js"></script>
+<br/><br/>
 </body>
 </html>

@@ -32,7 +32,7 @@
     <!-- Sidebar -->
     <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
         <ul class="nav sidebar-nav">
-            <li class="sidebar-brand"><a href="index.html">AgriTrak</a></li>
+            <li class="sidebar-brand"><a href="index.php">AgriTrak</a></li>
             <li><a href="index.php">Home</a></li>
             <li><a href="HTML/farm.php">The Farm</a></li>
             <li><a href="HTML/hardware.php">The Hardware</a></li>
