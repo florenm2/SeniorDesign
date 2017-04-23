@@ -3,10 +3,10 @@ var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Monday", "Tuesday", "Wednesday"],
+        labels: getLastThreeDays(),
         datasets: [{
             label: 'Temperature',
-            data: [22, 31, 42],
+            data: getAverageTemps(),
             backgroundColor: 'rgba(0, 0, 255, 0.3)' , /*[
                 'rgba(0, 0, 255, 0.3)' ,
                 'rgba(54, 162, 235, 0.2)',
@@ -43,7 +43,7 @@ var ctx = document.getElementById("dayTrendChart");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: populateTimes(),
+        labels: timeData(24),
         datasets: [{
             label: 'Temperature',
             data: populateHourTemps(),
@@ -78,6 +78,46 @@ var myChart = new Chart(ctx, {
 });
 }
 
+function waterLevelChart(){
+    var ctx = document.getElementById("waterLevelChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: timeData(12),
+            datasets: [{
+                label: 'Water Level (in)',
+                data: waterLevelData(),
+                backgroundColor: 'rgba(0, 255, 255, 0.3)',/*[
+                 'rgba(0, 255, 0, 0.3)',
+                 'rgba(54, 162, 235, 0.2)',
+                 'rgba(255, 206, 86, 0.2)',
+                 'rgba(75, 192, 192, 0.2)',
+                 'rgba(153, 102, 255, 0.2)',
+                 'rgba(255, 159, 64, 0.2)'
+                 ],*/
+                borderColor: 'rgba(255,99,132,1)',/*[
+                 'rgba(255,99,132,1)',
+                 'rgba(54, 162, 235, 1)',
+                 'rgba(255, 206, 86, 1)',
+                 'rgba(75, 192, 192, 1)',
+                 'rgba(153, 102, 255, 1)',
+                 'rgba(255, 159, 64, 1)'
+                 ],*/
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+}
+
 
 function populateTimes(){
     var d = new Date();
@@ -103,6 +143,7 @@ function getMetrics(){
     getTemp();
     getWaterLevel();
     getSoilMoistureLevel();
+    setCurrentDateTime();
 }
 
 function getTemp(){
@@ -135,9 +176,6 @@ function getSoilMoistureLevel(){
     document.getElementById("soilMoistureLevel").innerHTML = "Soil Moisture Level: " + sml; 
 }
 
-function dateBack(){
-    document.getElementById("")
-}
 
 //Database 
 var baseuri = "https://api.mlab.com/api/1";
@@ -183,13 +221,24 @@ function tempData(){
     return tData;
 }
 
-function timeData(){
+function timeData(hours){
     var tData = [];
     var dataLength = data.length;
-    for(var i=dataLength-24; i<dataLength; i++){
-        tData.push(data[i].dateTime);
+    for(var i=dataLength-hours; i<dataLength; i++){
+        var tempDate = new Date(data[i].dateTime);
+        tData.push(tempDate.toLocaleTimeString());
+        //tData.push(tempDate. + "/" + tempDate.getDay() + tempDate.getHours() + ":" + tempDate.getMinutes());
     }
     return tData;
+}
+
+function waterLevelData(){
+    var wLvl = [];
+    var dataLength = data.length;
+    for(var i=dataLength-12; i<dataLength; i++){
+        wLvl.push((data[i].waterLevel));
+    }
+    return wLvl;
 }
 
 function currentTemp(){
@@ -208,6 +257,55 @@ function currentSoilMoisture(){
     //var data = databaseData;
     var cSoil = data[data.length - 1].soilMoisture;
     return cSoil;
+}
+
+function setCurrentDateTime(){
+    var currentDateTime =  data[data.length - 1].dateTime;
+    var dateObj = new Date(currentDateTime).toUTCString();
+    document.getElementById("date").innerHTML = "Last Measured at: " + dateObj;
+}
+
+function getLastThreeDays(){
+    var currentDate = new Date();
+    var oneDayAgo = new Date((new Date()).valueOf() - 1000*60*60*24);
+    var twoDaysAgo = new Date((new Date()).valueOf() - 1000*60*60*24*2);
+
+    return [twoDaysAgo.toLocaleDateString(), oneDayAgo.toLocaleDateString(), currentDate.toLocaleDateString()];
+}
+
+function getAverageTemps(){
+    var currentDateTemps = [];
+    var prevDateTemps = [];
+    var prevPrevDateTemps = [];
+    var currentDate = new Date().getDate();
+    for(var i =0; i<data.length; i++){
+        var tempDate = new Date(data[i].dateTime).getDate();
+        if (tempDate == currentDate-2){
+            prevPrevDateTemps.push(data[i].temperature);
+        }else if(tempDate == currentDate-1){
+            prevDateTemps.push(data[i].temperature);
+        }else if(tempDate == currentDate){
+            currentDateTemps.push(data[i].temperature);
+        }
+    }
+
+    var avgTemps = [avgCalc(prevPrevDateTemps), avgCalc(prevDateTemps), avgCalc(currentDateTemps)];
+    return avgTemps;
+}
+
+//helper for getAvgerageTemps
+function avgCalc(arr){
+    var length = arr.length;
+    if(length > 0){
+        var sum = 0;
+        for(var i=0; i<length; i++){
+            sum += arr[i];
+        }
+        return sum/length;
+    } else{
+        return 0;
+    }
+
 }
 
 

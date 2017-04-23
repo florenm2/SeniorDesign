@@ -21,11 +21,14 @@
                     </br></br>
                     <h4>Temperature over Last 24 Hours</h4>
                     <canvas id="dayTrendChart"></canvas>  <!-- width="400" height="200" -->
+                     <h4>Water Level over Last 12 Hours</h4>
+                     <canvas id="waterLevelChart"></canvas>
                 </div> <!-- end trends -->
                 <script src="../JS/charts.js" type="text/javascript"></script>
                 <script language="javascript">
                     dayChart();
                     monthChart();
+                    waterLevelChart();
                 </script>
             </div>
         </div>

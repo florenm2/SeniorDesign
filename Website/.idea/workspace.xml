@@ -25,8 +25,8 @@
       <file leaf-file-name="charts.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JS/charts.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6633663">
-              <caret line="183" column="1" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.5891089">
+              <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -75,7 +75,7 @@
       <file leaf-file-name="metrics.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/metrics.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5">
+            <state vertical-scroll-proportion="-13.807693">
               <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
               <folding />
             </state>
@@ -85,8 +85,8 @@
       <file leaf-file-name="trends.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/HTML/trends.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.923077">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state vertical-scroll-proportion="-16.423077">
+              <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -107,7 +107,6 @@
         <option value="$PROJECT_DIR$/HTML/trends.html" />
         <option value="$PROJECT_DIR$/HTML/sensors.php" />
         <option value="$PROJECT_DIR$/HTML/index.php" />
-        <option value="$PROJECT_DIR$/HTML/trends.php" />
         <option value="$PROJECT_DIR$/HTML/hardware.php" />
         <option value="$PROJECT_DIR$/../../../cse252/my-cse252-portal/style.css" />
         <option value="$PROJECT_DIR$/../../../cse252/my-cse252-portal/index.html" />
@@ -116,6 +115,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/HTML/data.php" />
         <option value="$PROJECT_DIR$/HTML/metrics.php" />
+        <option value="$PROJECT_DIR$/HTML/trends.php" />
         <option value="$PROJECT_DIR$/JS/charts.js" />
       </list>
     </option>
@@ -620,26 +620,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/trends.php">
+    <entry file="file://$PROJECT_DIR$/HTML/metrics.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.923077">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        <state vertical-scroll-proportion="-13.807693">
+          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/HTML/metrics.php">
+    <entry file="file://$PROJECT_DIR$/HTML/trends.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5">
-          <caret line="25" column="60" selection-start-line="25" selection-start-column="60" selection-end-line="25" selection-end-column="60" />
+        <state vertical-scroll-proportion="-16.423077">
+          <caret line="30" column="38" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/charts.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6633663">
-          <caret line="183" column="1" selection-start-line="183" selection-start-column="1" selection-end-line="183" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.5891089">
+          <caret line="87" column="40" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="40" />
           <folding />
         </state>
       </provider>
