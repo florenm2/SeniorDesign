@@ -261,7 +261,7 @@ function currentSoilMoisture(){
 
 function setCurrentDateTime(){
     var currentDateTime =  data[data.length - 1].dateTime;
-    var dateObj = new Date(currentDateTime).toUTCString();
+    var dateObj = new Date(currentDateTime).toLocaleString();
     document.getElementById("date").innerHTML = "Last Measured at: " + dateObj;
 }
 

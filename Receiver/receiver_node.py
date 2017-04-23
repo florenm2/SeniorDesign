@@ -2,9 +2,9 @@ import serial
 import sys
 import requests
 import json
-from time import gmtime, strftime
+from time import gmtime, strftime, localtime
 
-dateTime = strftime("%Y/%m/%d %H:%M:%S", gmtime())
+dateTime = strftime("%Y/%m/%d %H:%M:%S", localtime())
 
 def ASCII(s):
 	x = 0
