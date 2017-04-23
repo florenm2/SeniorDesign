@@ -17,8 +17,7 @@
                             <th>Date/Time</th>
                             <th>Temp (deg F)</th>
                             <th>Soil Moisture Level</th>
-                            <th>Evap(1)</th>
-                            <th>Evap(2)</th>
+                            <th>Water Level</th>
                         </tr>
                     </table>
                     <button id="btnExport" onclick="fnExcelReport('data');"> EXPORT </button>

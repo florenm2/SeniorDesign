@@ -101,7 +101,7 @@ function populateHourTemps(){
 
 function getMetrics(){
     getTemp();
-    getEvapotranspiration();
+    getWaterLevel();
     getSoilMoistureLevel();
 }
 
@@ -123,21 +123,11 @@ function getTemp(){
 
 }
 
-function getEvapotranspiration(){
-    getCornE();
-    getWheatE();
-}
-
-function getCornE(){
-    var cornP = currentCornEvap();
-    document.getElementById("cornProgress").style.width = cornP + "%";
-    document.getElementById("cornProgress").innerHTML = cornP;
-}
-
-function getWheatE(){
-    var wheatP = currentWheatEvap();
-    document.getElementById("wheatProgress").style.width = wheatP + "%";
-    document.getElementById("wheatProgress").innerHTML = wheatP;
+function getWaterLevel(){
+    var waterL= currentWaterLevel();
+    document.getElementById("waterLevelDisplay").innerHTML = "Water Level: " + waterL + " in";
+    document.getElementById("waterLevel").style.width = waterL/5 * 100 + "%";
+    document.getElementById("waterLevel").innerHTML = waterL;
 }
 
 function getSoilMoistureLevel(){
@@ -179,15 +169,14 @@ function formatData(){
         var cell3 = row.insertCell(2);
         cell3.innerHTML = tempData.soilMoisture;
         var cell4 = row.insertCell(3);
-        cell4.innerHTML = tempData.cornEvap;
-        var cell5 = row.insertCell(4);
-        cell5.innerHTML = tempData.wheatEvap;
+        cell4.innerHTML = tempData.waterLevel;
     }
 }
 
 function tempData(){
     var tData = [];
-    for(var i=0; i<data.length; i++){
+    var dataLength = data.length;
+    for(var i=dataLength-24; i<dataLength; i++){
         tData.push(data[i].temperature);
     }
     //formatData(data);
@@ -196,7 +185,8 @@ function tempData(){
 
 function timeData(){
     var tData = [];
-    for(var i=0; i<data.length; i++){
+    var dataLength = data.length;
+    for(var i=dataLength-24; i<dataLength; i++){
         tData.push(data[i].dateTime);
     }
     return tData;
@@ -205,25 +195,18 @@ function timeData(){
 function currentTemp(){
     //var data = databaseData;
     console.log("test");
-    var latestT = data[0].temperature;
+    var latestT = data[data.length - 1].temperature;
     return latestT;
 }
 
-function currentWheatEvap(){
-    //var data = databaseData;
-    var cWheat = data[0].wheatEvap;
-    return cWheat;
-}
-
-function currentCornEvap(){
-    //var data = databaseData;
-    var cCorn = data[0].cornEvap;
-    return cCorn;
+function currentWaterLevel(){
+    var latestWL = data[data.length - 1].waterLevel;
+    return latestWL;
 }
 
 function currentSoilMoisture(){
     //var data = databaseData;
-    var cSoil = data[0].soilMoisture;
+    var cSoil = data[data.length - 1].soilMoisture;
     return cSoil;
 }
 
