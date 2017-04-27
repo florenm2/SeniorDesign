@@ -11,6 +11,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <div class="peak text-center" id="peak">
                     <h1>Database Data</h1>
+                    <h5>From Previous 2 Days</h5>
                     <br/>
                     <table class="table table-responsive table-striped table-bordered" id="data">
                         <tr>

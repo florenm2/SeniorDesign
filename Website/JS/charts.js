@@ -196,18 +196,28 @@ function getCollectionData(){
 
 function formatData(){
     //console.log(data[0].measurements.length);
+    var twoDaysAgo = new Date((new Date()).valueOf() - 1000*60*60*24*2);
+    //console.log(twoDaysAgo);
+    var tableIndex = 0;
     for(var i=0; i<data.length; i++){
         tempData = data[i];
-        var table = document.getElementById("data");
-        var row = table.insertRow(i+1);
-        var cell1 = row.insertCell(0);
-        cell1.innerHTML = tempData.dateTime;
-        var cell2 = row.insertCell(1);
-        cell2.innerHTML = tempData.temperature;
-        var cell3 = row.insertCell(2);
-        cell3.innerHTML = tempData.soilMoisture;
-        var cell4 = row.insertCell(3);
-        cell4.innerHTML = tempData.waterLevel;
+        var tempDate = new Date(tempData.dateTime);
+
+        if(tempDate > twoDaysAgo){
+            var table = document.getElementById("data");
+            var row = table.insertRow(tableIndex+1);
+            var cell1 = row.insertCell(0);
+            cell1.innerHTML = tempData.dateTime;
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = tempData.temperature;
+            var cell3 = row.insertCell(2);
+            cell3.innerHTML = tempData.soilMoisture;
+            var cell4 = row.insertCell(3);
+            cell4.innerHTML = tempData.waterLevel;
+            tableIndex++;
+        }
+
+
     }
 }
 
